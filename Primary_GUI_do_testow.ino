@@ -186,7 +186,14 @@ void setup() {
   arduino_OTA_start();
 #endif
 
-
+while (WiFi.status() != WL_CONNECTED) delay(50);
+	Serial.println("Connected");
+	
+	Pushover po = Pushover("SecureAppToken","UserToken");
+	po.setDevice("Device1");
+	po.setMessage("Testnotification");
+	po.setSound("bike");
+	Serial.println(po.send()); //should return 1 on success
 
 
 }
@@ -783,7 +790,7 @@ void pompka_ON_OFF() {
         Serial.print("Prawda->ds18b20_channel[0].last_val >= (ds18b20_channel[1].last_val-2), stan pompy -> "); Serial.println(digitalRead(RELAY1_PIN));
         SuplaDevice.relayOff( 0 ); // wyłącz relay z pompką
         Serial.print("Wyłączam pompkę: "); Serial.println(digitalRead(RELAY1_PIN));
-          push();
+         
         }
         else {
         Serial.print("Fałsz->ds18b20_channel[0].last_val >= (ds18b20_channel[1].last_val-2) "); Serial.println(digitalRead(RELAY1_PIN));
