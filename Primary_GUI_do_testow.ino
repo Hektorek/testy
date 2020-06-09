@@ -42,8 +42,8 @@
 
 // pushover
 #include "Pushover.h"
-#include <WiFiClientSecure.h>
-#include <ESP8266HTTPClient.h>
+//#include <WiFiClientSecure.h>
+//#include <ESP8266HTTPClient.h>
 
 
 
@@ -1189,7 +1189,7 @@ void arduino_OTA_start() {
 }
 
 
-
+/*
 
 void push() {
 Serial.println ("test");
@@ -1208,3 +1208,4 @@ Serial.println ("nie wysłane");
   
   
   }
+*/
